@@ -29,10 +29,9 @@ class Incrementador extends Thread {
 
 
 public static void main(String[] args) throws InterruptedException {
-     // Crear un Contador
+     
      Contador contador = new Contador();
 
-     // Crear varios Incrementador
      int numHilos = 5;
      Incrementador[] hilos = new Incrementador[numHilos];
      for (int i = 0; i < numHilos; i++) {
@@ -40,13 +39,19 @@ public static void main(String[] args) throws InterruptedException {
          hilos[i].start();
      }
 
-     // Esperar a que todos los hilos terminen
      for (Incrementador hilo : hilos) {
          hilo.join();
      }
 
-     // Imprimir el valor final del contador
      System.out.println("Valor final del contador: " + contador.getValor());
 
 }
+
+/* Synchronized resuelve el problema de concurrencia al bloquear 
+ * el acceso a un recurso compartido. Bloquea el objeto que está 
+ * siendo utilizado, impidiendo que otros hilos accedan a 
+ * métodos o bloques de código sincronizados en ese objeto 
+ * hasta que el hilo actual termine su ejecución. Esto evita 
+ * condiciones de carrera y asegura la integridad de los datos.
+ */
 }

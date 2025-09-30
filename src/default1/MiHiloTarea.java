@@ -9,7 +9,7 @@ class MiHiloTarea extends Thread {
  @Override
  public void run() {
      for (int i = 0; i < 5; i++) {
-         System.out.println(nombre + " - Iteración " + (i + 1));
+         System.out.println(nombre + " - Iteración: " + (i + 1));
          try {
              Thread.sleep(100); // Pausa por 100 milisegundos
          } catch (InterruptedException e) {
